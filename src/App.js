@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-import pokedexHeader from './comp/pokehead.js';
+import PokedexHeader from './comp/PokedexHeader';
 function App() {
   return (
     <div className = "App ">
-      <pokedexHeader name = {"Ryan"} />
+      <PokedexHeader name = {"Ryan"} />
     </div>
   )
 }
