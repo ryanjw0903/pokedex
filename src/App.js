@@ -5,12 +5,14 @@ import {
   Input,
   Segment
 } from 'semantic-ui-react'
+import APIpeople from './comp/APIpeople';
 
 class App extends React.Component {
   constructor(props){
       super(props)
       this.state={
-        name: "Ryan"
+        name: "Ryan",
+        person: null,
       }
       this.onChange = this.onChange.bind(this)
   }
@@ -18,6 +20,13 @@ class App extends React.Component {
     this.setState({
       name: data.value
     })
+  }
+   async componentDidMount(){
+        const url = "https://api.randomuser.me/"
+        const response = await fetch(url);
+        const data = await response.json();
+        this.setState({person: data.results[0]})
+        console.log(data)
   }
   render(){
   return (
@@ -30,6 +39,14 @@ class App extends React.Component {
             value = {this.state.name}
            /> 
         </Segment>
+        {!this.state.person ? (<div>Loading</div>) : 
+        (
+        <div>
+          <APIpeople person={this.state.person.name.first}/>
+          <APIpeople person={this.state.person.name.last}/>
+          <img src = {this.state.person.picture.large}/>
+        </div>
+        )}
       </div>
     )
   }
