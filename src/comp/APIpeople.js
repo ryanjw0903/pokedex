@@ -1,6 +1,5 @@
 import React from 'react';
 class APIpeople extends React.Component{
-
     state = {
         loading: true,
         person: null,
