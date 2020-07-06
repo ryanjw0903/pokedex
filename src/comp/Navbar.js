@@ -1,10 +1,27 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Nav} from 'react-bootstrap';
 
 class Navbar extends React.Component{
     render(){
     return (
-        <nav>
+        <Nav fill variant="tabs" defaultActiveKey="/home">
+        <Nav.Item>
+          <Nav.Link href="/">Home</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link href="/APIpeople">APIPeople</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link href="/PokedexHeader">Pokedex</Nav.Link>
+        </Nav.Item>
+      </Nav>
+
+    )
+    }
+  }
+export default Navbar
+/*
+  <nav>
             <ul className = "nav-links">
                 <Link  to ="/">
                     <li>Home</li>
@@ -18,6 +35,4 @@ class Navbar extends React.Component{
             </ul>
         </nav>
     )
-    }
-  }
-export default Navbar
+    */

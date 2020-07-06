@@ -5,7 +5,7 @@ class Home extends React.Component{
     return (
         <div>
                <h1>HOME PAGE OF MY REACT APP</h1>
-                <h2>Learing to use React with routing and calling API's</h2>
+                <h2>Learning to use React with routing and calling API's</h2>
         </div>
     )
     }

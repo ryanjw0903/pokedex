@@ -14,10 +14,13 @@ class APIpeople extends React.Component{
   render(){
       return( 
           <div>
+            <h1>First time pratcie with API before doing Pokedex</h1>
             {this.state.loading ? <div>loading</div> :
             (
             <div>
                 <h1>{this.state.person.name.first}</h1>
+                <h1>{this.state.person.name.last}</h1>
+                <img src = {this.state.person.picture.large}/>
 
             </div>
             )}
