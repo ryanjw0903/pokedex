@@ -1,11 +1,14 @@
 
 import React from 'react';
 import { Input, Segment } from 'semantic-ui-react';
+import Pokedis from './Pokedis';
 class PokedexHeader extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      pokeName: null
+      pokeName: null,
+      load: true,
+      pokemon: null
     }
     this.onChange=this.onChange.bind(this)
   }
@@ -14,8 +17,13 @@ class PokedexHeader extends React.Component{
       pokeName: data.value
     })
   }
-
-    render(){
+async componentDidMount(){
+    const url = "https://pokeapi.co/api/v2/pokemon?limit=151&offset=0"
+    const response = await fetch(url);
+    const data = await response.json();
+    this.setState({pokemon: data['results'], load: false})
+}
+  render(){
     return (
       <div>
       <Segment>
@@ -26,6 +34,18 @@ class PokedexHeader extends React.Component{
       />
       </Segment>
       <h1>{this.state.pokeName}</h1>
+      {this.state.load ? <div>None</div> :
+            (
+            <div>
+               {this.state.pokemon.map(pokemon =>(
+                 <Pokedis
+                  key = {pokemon.name}
+                  name = {pokemon.name}
+                  />
+               ))}
+            </div>
+            )}
+
       </div>
     );
     }
