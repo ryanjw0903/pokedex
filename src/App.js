@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import PokedexHeader from './comp/PokedexHeader';
+import Pokedex from './comp./comp/Pokedex';
 import APIpeople from './comp/APIpeople';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Navbar from './comp/Navbar';
@@ -16,7 +16,7 @@ class App extends React.Component {
           <Switch>
             <Route path = "/" exact component={Home}/>
             <Route path = "/APIpeople" component={APIpeople}/>
-            <Route path = "/PokedexHeader" component={PokedexHeader} />
+            <Route path = "/PokedexHeader" component={Pokedex} />
           </Switch>
       </div>
       </Router>

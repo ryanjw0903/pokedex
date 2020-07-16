@@ -4,12 +4,13 @@ class Pokedis extends React.Component{
     state = {
         name: ''
     }
-
     render(){
         const name = this.props
         return (
-          <div className='row'>
+          <div>
               <h1>{name}</h1>
+              <img src='https://img.pokemondb.net/sprites/black-white/normal/zubat.png'/>
+
           </div>
         );
     }
