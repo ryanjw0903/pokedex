@@ -19,7 +19,7 @@ class Pokedex extends React.Component{
     })
   }
    <Segment>
-      <Input
+      <Inputgitb
         label = {"Input Pokemon Name"}
         onChange={this.onChange}
         value = {this.state.pokeName}
@@ -43,6 +43,7 @@ async componentDidMount(){
                 <Pokedis
                   key = {pokemon.name}
                   name = {pokemon.name}
+                  url = {pokemon.url}
                 />
               ))}
             </div>
