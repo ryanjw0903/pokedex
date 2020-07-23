@@ -1,29 +1,42 @@
 
 import React from 'react';
-import { Stats } from 'fs';
 class Pokedis extends React.Component{
     state = {
-        name: '',
-        url: '',
-        stats: null,
+        stat: "",
+        statImg: null,
+        statType: [],
+        url: " "
     }
     async componentDidMount(){
-      const {name, url} = this.props
-      const response = await fetch(url);
+      const nurl = this.props.url
+      const response = await fetch(nurl);
       const data = await response.json();
-      this.setState({stats: data.ablities})
+      const statType = data.types.map(type => type.type.name);
+      const id = data.order
+      this.setState({
+        stat: data.name,
+        id,
+        statType,
+        statImg: data.sprites.front_shiny,
+        url: nurl
+      })
     }
     render(){
         return (
-          <div>
-            {this.state.stats ?  (
-              <div>
-              <h1>{this.state.name}</h1>
-              <h1>{this.state.stats.forms.name}</h1>
+          <div class ="col-md-3 col-sm-6 mb-5">
+          <div class="card">
+            <div class="card-header">
+              <p>{this.state.stat}</p>
+              <div class = 'row'>
+                <img src={this.state.statImg} classname="rounded float-left"/>
+                <div class = 'col'>
+                  {this.state.statType.map(type =>(
+                    <p>{type}</p>
+                  ))}
+                </div>
               </div>
-            ) : (
-              <div>none</div>
-            )}
+            </div>
+          </div>
           </div>
         );
     }

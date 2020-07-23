@@ -14,7 +14,7 @@ class APIpeople extends React.Component{
   render(){
       return( 
           <div>
-            <h1>First time pratcie with API before doing Pokedex</h1>
+            <h1>First time practice with API before doing Pokedex</h1>
             {this.state.loading ? <div>loading</div> :
             (
             <div>

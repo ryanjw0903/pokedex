@@ -12,7 +12,7 @@ class Navbar extends React.Component{
           <Nav.Link href="/APIpeople">APIPeople</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link href="/PokedexHeader">Pokedex</Nav.Link>
+          <Nav.Link href="/Pokedex">Pokedex</Nav.Link>
         </Nav.Item>
       </Nav>
 
