@@ -7,7 +7,6 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Navbar from './comp/Navbar';
 import Home from './comp/Home';
 class App extends React.Component {
-
   render(){
   return (
     <Router>
